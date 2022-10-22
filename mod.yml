@@ -1,0 +1,7 @@
+assets:
+#Lua Scripts
+- name: scripts/slowcommands.lua
+  method: copy
+  source:
+  - name: slowcommands.lua
+title: Slow Command Selection
