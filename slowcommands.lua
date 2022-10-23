@@ -35,8 +35,14 @@ function Events(M,B,E) --Check for Map, Btl, and Evt
 end
 
 function Cheats()
-   if ReadLong(0x24AA2CA) ~= 0 then
-      WriteFloat(GamSpd, 0.25)
-   else WriteFloat(GamSpd, 1)
-   end
+   local _shortSpeed = ReadFloat(GamSpd)
+   if _shortSpeed > 0.2 then
+     if ReadLong(0x24AA2CA) ~= 0 and _shortSpeed ~= 0.25 then
+        WriteFloat(GamSpd, 0.25)
+        ConsolePrint("SLOWING")
+     elseif ReadLong(0x24AA2CA) == 0 and _shortSpeed ~= 1 then 
+        WriteFloat(GamSpd, 1)
+        ConsolePrint("SPEED")
+    end
+  end
 end
