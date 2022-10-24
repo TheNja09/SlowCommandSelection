@@ -37,12 +37,22 @@ end
 function Cheats()
    local _shortSpeed = ReadFloat(GamSpd)
    if _shortSpeed > 0.2 then
-     if ReadLong(0x24AA2CA) ~= 0 and _shortSpeed ~= 0.25 then
-        WriteFloat(GamSpd, 0.25)
-        ConsolePrint("SLOWING")
-     elseif ReadLong(0x24AA2CA) == 0 and _shortSpeed ~= 1 then 
-        WriteFloat(GamSpd, 1)
-        ConsolePrint("SPEED")
-    end
-  end
+      if ReadLong(0x24AA2CA) ~= 0 and _shortSpeed ~= 0.25 then
+         WriteFloat(GamSpd, 0.25)
+      elseif Place == 0x0609 and _shortSpeed ~= 0.25 then --A Blustery Rescue
+         if ReadByte(Cntrl) == 0 then --Minigame Started
+            WriteFloat(GamSpd, 2)
+         end
+      elseif Place == 0x0409 and _shortSpeed ~= 0.25 then --Minigame Ended
+         WriteFloat(GamSpd, 1)
+      elseif Place == 0x0709 then --Hunny Slider
+         if ReadByte(Cntrl) == 0 then --Minigame Started
+            WriteFloat(GamSpd, 2)
+         end
+      elseif Place == 0x0309 and _shortSpeed ~= 0.25 then --Minigame Ended
+         WriteFloat(GamSpd, 1)
+	  elseif ReadLong(0x24AA2CA) == 0 and _shortSpeed ~= 1 then
+         WriteFloat(GamSpd, 1)
+      end
+   end
 end
