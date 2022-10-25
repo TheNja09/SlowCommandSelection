@@ -39,6 +39,7 @@ function Cheats()
    if _shortSpeed > 0.2 then
       if ReadLong(0x24AA2CA) ~= 0 and _shortSpeed ~= 0.25 then
          WriteFloat(GamSpd, 0.25)
+			WriteFloat(0xB088F-0x56454E, 0.5)
       elseif Place == 0x0609 and _shortSpeed ~= 0.25 then --A Blustery Rescue
          if ReadByte(Cntrl) == 0 then --Minigame Started
             WriteFloat(GamSpd, 2)
@@ -53,6 +54,7 @@ function Cheats()
          WriteFloat(GamSpd, 1)
 	  elseif ReadLong(0x24AA2CA) == 0 and _shortSpeed ~= 1 then
          WriteFloat(GamSpd, 1)
+			WriteFloat(0xB088F-0x56454E, 1)
       end
    end
 end
