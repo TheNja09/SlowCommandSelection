@@ -52,7 +52,7 @@ function Cheats()
          end
       elseif Place == 0x0309 and _shortSpeed ~= 0.25 then --Minigame Ended
          WriteFloat(GamSpd, 1)
-	  elseif ReadLong(0x24AA2CA) == 0 and _shortSpeed ~= 1 then
+	  elseif ReadLong(0x24AA2CA) == 0 and _shortSpeed == 0.25 then
          WriteFloat(GamSpd, 1)
 			WriteFloat(0xB088F-0x56454E, 1)
       end
