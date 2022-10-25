@@ -1,7 +1,8 @@
+title: Slow Command Selection
+description: This mod replcates the KH3 setting that slows down the game when selecting from a sub-menu command. Also slows down the game audio while choosing!
 assets:
 #Lua Scripts
 - name: scripts/slowcommands.lua
   method: copy
   source:
   - name: slowcommands.lua
-title: Slow Command Selection
