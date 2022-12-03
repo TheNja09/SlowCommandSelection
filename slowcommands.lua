@@ -39,12 +39,12 @@ function Cheats()
     if _shortSpeed > 0.2 and _shortSpeed < 1.5 then
         if ReadLong(0x24AA2CA) ~= 0 and _shortSpeed ~= 0.25 then
             WriteFloat(GamSpd, 0.25)
-            WriteFloat(0xB0928-0x56454E, 0.5)
+            WriteFloat(0xFFFFFFFFFFB4C3DA, 0.5)
         elseif ReadLong(0x24AA2CA) == 0 and _shortSpeed == 0.25 then
             WriteFloat(GamSpd, 1)
-            WriteFloat(0xB0928-0x56454E, 1)
+            WriteFloat(0xFFFFFFFFFFB4C3DA, 1)
         elseif _shortSpeed > 0.9 and _shortSpeed < 1.1 then
-            WriteFloat(0xB0928-0x56454E, 1)
+            WriteFloat(0xFFFFFFFFFFB4C3DA, 1)
         end
     end
 end
